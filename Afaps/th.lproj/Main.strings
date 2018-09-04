@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "personname"; ObjectID = "5BU-bc-Ogu"; */
+"5BU-bc-Ogu.text" = "personname";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "77G-8m-UuM"; */
+"77G-8m-UuM.placeholder" = "อีเมล";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "7pj-yX-0eM"; */
+"7pj-yX-0eM.placeholder" = "รหัสผ่าน";
+
+/* Class = "UILabel"; text = "personname"; ObjectID = "BUx-IA-exv"; */
+"BUx-IA-exv.text" = "personname";
+
+/* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "Nco-rd-9br"; */
+"Nco-rd-9br.normalTitle" = "เข้าสู่ระบบ";
+
+/* Class = "UILabel"; text = "personname"; ObjectID = "fxR-tU-pKU"; */
+"fxR-tU-pKU.text" = "personname";
+
+/* Class = "UINavigationItem"; title = "Afaps"; ObjectID = "llq-Pe-I0f"; */
+"llq-Pe-I0f.title" = "Afaps";
+
+/* Class = "UILabel"; text = "personname"; ObjectID = "oho-qD-fay"; */
+"oho-qD-fay.text" = "personname";
