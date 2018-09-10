@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   Created by MOP on 21/3/2561 BE.
+   Copyright (c) 2560 bigdata. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+        <key>teamID</key>
+        <string>9QQ82G2FQE</string>
+        <key>compileBitcode</key>
+        <false/>
+        <key>method</key>
+        <string>enterprise</string>
+        <key>uploadSymbols</key>
+	    <false/>
+	    <key>uploadBitcode</key>
+	    <false/>
+	    <key>stripSwiftSymbols</key>
+	    <true/>
+    </dict>
+</plist>
