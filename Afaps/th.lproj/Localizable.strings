@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Afaps
+
+  Created by Jiraporn Praneet on 6/9/2561 BE.
+  Copyright © 2561 InformatixPlusCompanyLimited. All rights reserved.
+*/
+
+"Do you want to log out?" = "ออกจากระบบ";
+"Cancel" = "ยกเลิก";
+"Confirm" = "ยืนยัน";
+"Result not found" = "ไม่พบผลลัพธ์";
+"Created At : %@" = "วันที่ : %@";
+"Location : %@" = "สถานที่ตั้ง : %@";
+"Similarity : %@" = "ความคล้ายคลึงกัน : %@";

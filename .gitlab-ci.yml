@@ -1,0 +1,59 @@
+stages:
+  - test
+  - build
+  - archive
+
+variables:
+  WORKSPACE: -workspace Afaps.xcworkspace
+  CONFIGURATION: -configuration Release
+
+.build_template: &build
+  stage: build
+  script:
+    - pod install
+    - xcodebuild -alltargets clean | xcpretty
+    - xcodebuild $WORKSPACE $CONFIGURATION -scheme $SCHEME -allowProvisioningUpdates build | xcpretty
+  except:
+    - master
+  tags:
+    - mac
+
+.archive_template: &archive
+  stage: archive
+  script:
+    - pod install
+    - xcodebuild $WORKSPACE $CONFIGURATION -scheme $SCHEME -archivePath build/$SCHEME.xcarchive archive | xcpretty
+    - APP_VERSION=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" Afaps/$SCHEME-Info.plist` 
+    - >-
+        xcodebuild -exportArchive -allowProvisioningUpdates
+        -exportOptionsPlist export-$SCHEME.plist
+        -archivePath build/$SCHEME.xcarchive
+        -exportPath build/$SCHEME-$APP_VERSION.ipa
+        | xcpretty
+  only:
+    - master
+  artifacts:
+    paths:
+      - build/$SCHEME-*
+    expire_in: 1 week
+  tags:
+    - mac
+
+swiftlint:
+  stage: test
+  script:
+    - rm -rf Pods/
+    - pod install
+    - Pods/SwiftLint/swiftlint --strict
+  tags:
+    - mac
+    
+build:Afaps-enterprise:
+  variables:
+    SCHEME: Afaps-enterprise
+  <<: *build
+
+archive:Afaps-enterprise:
+  variables:
+    SCHEME: Afaps-enterprise
+  <<: *archive

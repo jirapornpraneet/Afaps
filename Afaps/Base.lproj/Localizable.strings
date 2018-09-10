@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Afaps
+
+  Created by Jiraporn Praneet on 6/9/2561 BE.
+  Copyright © 2561 InformatixPlusCompanyLimited. All rights reserved.
+*/
+
+"Do you want to log out?" = "Do you want to log out?";
+"Cancel" = "Cancel";
+"Confirm" = "Confirm";
+"Result not found" = "Result not found";
+"Created At : %@" = "Created At : %@";
+"Location : %@" = "Location : %@";
+"Similarity : %@" = "Similarity : %@";
