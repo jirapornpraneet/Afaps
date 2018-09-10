@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import SSPullToRefresh
 import SDWebImage
+import Messages
+import Firebase
 
 class MainTableViewCell: UITableViewCell {
     @IBOutlet var createdAtLabel: UILabel!
@@ -17,21 +18,50 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet var faceImageView: UIImageView!
 }
 
-class MainViewController: UIViewController, SSPullToRefreshViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
 
-    var pullToRefreshView: SSPullToRefreshView!
+    var refresher: UIRefreshControl!
     var faceResources = [FaceResource]()
+    var timer: Timer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.statusBarStyle = .lightContent
-        pullToRefreshView = SSPullToRefreshView(scrollView: tableView, delegate: self)
-        pullToRefreshView.startLoadingAndExpand(true, animated: true)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView.init(frame: .zero)
+        timer = Timer.scheduledTimer(timeInterval: 5,
+                                     target: self,
+                                     selector: #selector(sendFCMToken),
+                                     userInfo: nil,
+                                     repeats: true)
+        sendFCMToken()
         getAllFace()
+        addRefreshControl()
+    }
+
+    func addRefreshControl() {
+        refresher = UIRefreshControl()
+        refresher.tintColor = UIColor.gray
+        refresher.addTarget(self, action: #selector(getAllFace), for: .valueChanged)
+        tableView.refreshControl = refresher
+    }
+
+    // MARK: FCM
+    @objc func sendFCMToken() {
+        if let registrationToken = Messaging.messaging().fcmToken {
+            let request = FCMInstantIDTokenRequest()
+            request.registrationToken = registrationToken
+
+            FCMManager().postFCMInstantIDToken(registrationToken: request.registrationToken!, onSuccess: { (_) in
+                self.timer.invalidate()
+            }, onFailure: { (errorResource) in
+                self.timer.invalidate()
+                ErrorResult().showError(errorResource: errorResource, viewController: self)
+            })
+        }
     }
 
     // MARK: IBAction
@@ -54,21 +84,15 @@ class MainViewController: UIViewController, SSPullToRefreshViewDelegate, UITable
         self.present(alert, animated: true, completion: nil)
     }
 
-    func getAllFace() {
+    @objc func getAllFace() {
         FaceManager().getFace(onSuccess: { (resource) in
-            self.pullToRefreshView.finishLoading()
+            self.refresher.endRefreshing()
             self.faceResources = resource
-            print("face\(self.faceResources)")
             self.tableView.reloadData()
         }, onFailure: { errorResource in
-            self.pullToRefreshView.finishLoading()
+            self.refresher.endRefreshing()
             ErrorResult().showError(errorResource: errorResource, viewController: self)
         })
-    }
-
-    func pull(toRefreshViewDidStartLoading view: SSPullToRefreshView!) {
-        pullToRefreshView.startLoading()
-        getAllFace()
     }
 
     // MARK: - Table view data source

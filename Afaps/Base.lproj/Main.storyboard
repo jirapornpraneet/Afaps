@@ -247,38 +247,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gqp-7d-Iem">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gqp-7d-Iem">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="faceCells" rowHeight="100" id="bMq-lc-jrr" customClass="MainTableViewCell" customModule="Afaps_enterprise" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="faceCells" rowHeight="120" id="bMq-lc-jrr" customClass="MainTableViewCell" customModule="Afaps_enterprise" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bMq-lc-jrr" id="pmd-jC-8YD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lSP-YU-nvz">
-                                                    <rect key="frame" x="10" y="7.5" width="85" height="85"/>
+                                                    <rect key="frame" x="10" y="3" width="85" height="113.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="85" id="9Xz-VV-AlX"/>
-                                                        <constraint firstAttribute="height" constant="85" id="o18-BV-zka"/>
+                                                        <constraint firstAttribute="height" constant="113" id="o18-BV-zka"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="personname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxR-tU-pKU">
-                                                    <rect key="frame" x="105" y="13" width="265" height="20"/>
+                                                    <rect key="frame" x="105" y="23" width="265" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="personname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oho-qD-fay">
-                                                    <rect key="frame" x="105" y="38" width="265" height="20"/>
+                                                    <rect key="frame" x="105" y="48" width="265" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="personname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BU-bc-Ogu">
-                                                    <rect key="frame" x="105" y="63" width="265" height="20"/>
+                                                    <rect key="frame" x="105" y="73" width="265" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -309,7 +309,7 @@
                             </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="gqp-7d-Iem" firstAttribute="top" secondItem="Wht-KR-jQB" secondAttribute="top" id="1AS-yR-qWR"/>
+                            <constraint firstItem="gqp-7d-Iem" firstAttribute="top" secondItem="aX5-Q1-32S" secondAttribute="top" id="3ct-VK-RSb"/>
                             <constraint firstAttribute="bottom" secondItem="gqp-7d-Iem" secondAttribute="bottom" id="Sac-0h-DGQ"/>
                             <constraint firstItem="gqp-7d-Iem" firstAttribute="leading" secondItem="Wht-KR-jQB" secondAttribute="leading" id="d1g-hM-h7B"/>
                             <constraint firstItem="gqp-7d-Iem" firstAttribute="trailing" secondItem="Wht-KR-jQB" secondAttribute="trailing" id="isS-I8-8Dv"/>

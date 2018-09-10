@@ -53,7 +53,6 @@ PODS:
     - SDWebImage/Core (= 4.2.3)
   - SDWebImage/Core (4.2.3)
   - SKPhotoBrowser (5.0.9)
-  - SSPullToRefresh (1.2.4-r1)
   - SwiftLint (0.27.0)
 
 DEPENDENCIES:
@@ -68,7 +67,6 @@ DEPENDENCIES:
   - R.swift (~> 4.0.0)
   - SDWebImage (~> 4.2.2)
   - SKPhotoBrowser (~> 5.0.3)
-  - SSPullToRefresh (from `https://repo.eoffice1.com/cocoa/sspulltorefresh.git`, tag `v1.2.4-r1`)
   - SwiftLint (~> 0.27.0)
 
 SPEC REPOS:
@@ -95,16 +93,6 @@ SPEC REPOS:
     - SKPhotoBrowser
     - SwiftLint
 
-EXTERNAL SOURCES:
-  SSPullToRefresh:
-    :git: https://repo.eoffice1.com/cocoa/sspulltorefresh.git
-    :tag: v1.2.4-r1
-
-CHECKOUT OPTIONS:
-  SSPullToRefresh:
-    :git: https://repo.eoffice1.com/cocoa/sspulltorefresh.git
-    :tag: v1.2.4-r1
-
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
@@ -126,9 +114,8 @@ SPEC CHECKSUMS:
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
   SKPhotoBrowser: 668c29bdd9d4d276026fc131c55e96d902c2463c
-  SSPullToRefresh: e8f40460feb53179b2b7252105a4583a10b56b64
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: 5dc17ab72dc54f05545d860f897f0f308adbe118
+PODFILE CHECKSUM: 0215568f871338fbb66f3d4ef1a46482957f6b52
 
 COCOAPODS: 1.5.3

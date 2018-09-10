@@ -17,7 +17,6 @@ abstract_target 'defaults' do
 
     #UI
     pod 'NVActivityIndicatorView', '~> 4.1.0'
-    pod 'SSPullToRefresh', :git => 'https://repo.eoffice1.com/cocoa/sspulltorefresh.git', :tag => 'v1.2.4-r1'
     pod 'SKPhotoBrowser', '~> 5.0.3'
 
     #Utilities
