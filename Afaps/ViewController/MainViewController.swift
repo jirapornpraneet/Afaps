@@ -51,7 +51,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     // MARK: FCM
     @objc func sendFCMToken() {
-        if let registrationToken = Messaging.messaging().fcmToken {
+        if let registrationToken = UserDefaults.loadFCMToken() {
             let request = FCMInstantIDTokenRequest()
             request.registrationToken = registrationToken
 
