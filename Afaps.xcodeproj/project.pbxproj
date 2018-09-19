@@ -186,12 +186,12 @@
 			buildConfigurationList = AB64CBB8213E6C4200F50773 /* Build configuration list for PBXNativeTarget "Afaps-enterprise" */;
 			buildPhases = (
 				81E41BE52281D4F2C89AFF52 /* [CP] Check Pods Manifest.lock */,
+				AB7D187E213FBC4A00B1D9B1 /* Swiftlint */,
+				AB7D187F213FC11700B1D9B1 /* R.Swift */,
 				AB64CBA2213E6C4100F50773 /* Sources */,
 				AB64CBA3213E6C4100F50773 /* Frameworks */,
 				AB64CBA4213E6C4100F50773 /* Resources */,
 				5AB86C51A742ABBE3B266381 /* [CP] Embed Pods Frameworks */,
-				AB7D187E213FBC4A00B1D9B1 /* Swiftlint */,
-				AB7D187F213FC11700B1D9B1 /* R.Swift */,
 			);
 			buildRules = (
 			);
