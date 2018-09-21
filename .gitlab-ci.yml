@@ -2,6 +2,7 @@ stages:
   - test
   - build
   - archive
+  - release
 
 variables:
   WORKSPACE: -workspace Afaps.xcworkspace
@@ -15,6 +16,7 @@ variables:
     - xcodebuild $WORKSPACE $CONFIGURATION -scheme $SCHEME -allowProvisioningUpdates build | xcpretty
   except:
     - master
+    - tags
   tags:
     - mac
 
@@ -23,19 +25,33 @@ variables:
   script:
     - pod install
     - xcodebuild $WORKSPACE $CONFIGURATION -scheme $SCHEME -archivePath build/$SCHEME.xcarchive archive | xcpretty
-    - APP_VERSION=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" Afaps/$SCHEME-Info.plist` 
+    - APP_VERSION=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" Afaps/$SCHEME-Info.plist`
+    - BUNDLE_IDENTIFIER=`/usr/libexec/PlistBuddy -c "Print CFBundleIdentifier" Afaps/$SCHEME-Info.plist`
     - >-
         xcodebuild -exportArchive -allowProvisioningUpdates
         -exportOptionsPlist export-$SCHEME.plist
         -archivePath build/$SCHEME.xcarchive
-        -exportPath build/$SCHEME-$APP_VERSION.ipa
+        -exportPath build/$SCHEME
         | xcpretty
+    - mv build/${SCHEME}/${SCHEME}.ipa build/${SCHEME}/afaps_${SCHEME}_${BUNDLE_IDENTIFIER}_${APP_VERSION}.ipa
   only:
-    - master
+    - /^v\d.*$/
   artifacts:
     paths:
-      - build/$SCHEME-*
+      - build/$SCHEME/*.ipa
     expire_in: 1 week
+  tags:
+    - mac
+
+.release_enterprise_template: &release-enterprise
+  stage: release
+  script:
+    - IPA_FILE=`ls -1 build/${SCHEME}/*.ipa`
+    - echo $IPA_FILE
+    - echo $UPLOAD_URL
+    - curl -F "file=@$IPA_FILE" "$UPLOAD_URL"
+  only:
+    - /^v\d.*$/
   tags:
     - mac
 
@@ -47,7 +63,7 @@ swiftlint:
     - Pods/SwiftLint/swiftlint --strict
   tags:
     - mac
-    
+
 build:Afaps-enterprise:
   variables:
     SCHEME: Afaps-enterprise
@@ -57,3 +73,11 @@ archive:Afaps-enterprise:
   variables:
     SCHEME: Afaps-enterprise
   <<: *archive
+
+release-enterprise:Afaps-enterprise:
+  variables:
+    SCHEME: Afaps-enterprise
+    UPLOAD_URL: URL
+  dependencies:
+    - archive:Afaps-enterprise
+  <<: *release-enterprise
